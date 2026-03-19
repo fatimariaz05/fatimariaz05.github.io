@@ -1,0 +1,286 @@
+/* IMPORT FONTS */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display--italic&family=Inter:wght@400;600;700&display=swap');
+
+:root {
+    --bg-color: #1a1512; /* Dark brown background */
+    --box-bg: #2b221e;   /* Slightly lighter brown for boxes */
+    --accent-color: #d4af37; /* Gold accent */
+    --text-primary: #e8e0d5; /* Cream text color */
+    --text-secondary: #a89f99; /* Muted text color */
+    --border-radius: 20px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+    height: 100vh;
+    overflow: hidden; /* Prevents scrolling for a fixed, app-like feel */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px; /* Minimal outer padding */
+}
+
+/* MAIN CONTAINER - The overall grid */
+.main-container {
+    display: grid;
+    grid-template-rows: auto 1fr auto; /* Header, Main Content, Footer */
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+    max-width: 1600px; /* Prevents it from getting too wide on large screens */
+}
+
+/* GENERAL BOX STYLING */
+.box {
+    background-color: var(--box-bg);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* HEADER BOX */
+.header-box {
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+.header-box h1 {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+
+/* MAIN GRID CONTENT */
+.grid-content {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr; /* Three columns with different widths */
+    gap: 10px;
+    height: 100%; /* Fills the remaining height */
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* LEFT COLUMN STYLES */
+.academic-box {
+    flex: 2; /* Takes up more space */
+    justify-content: center;
+}
+
+.medal-tag {
+    color: var(--accent-color);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.academic-box h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.2rem;
+    line-height: 1.1;
+    margin-bottom: 25px;
+}
+
+.stats p {
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.stats strong {
+    color: var(--text-primary);
+}
+
+.toolbox-box {
+    flex: 1;
+    justify-content: center;
+}
+
+.toolbox-box h3 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tags span {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* MIDDLE COLUMN STYLES */
+.image-placeholder {
+    flex: 3; /* Takes up most of the column */
+    background-color: #231b18; /* Slightly darker placeholder */
+    /* When you add an image, use: background-image: url('your-image.jpg'); background-size: cover; */
+}
+
+.contact-box {
+    flex: 1;
+    background-color: var(--accent-color); /* Gold background from video */
+    color: var(--bg-color); /* Dark text for contrast */
+    text-decoration: none;
+    justify-content: space-between;
+    position: relative;
+    transition: transform 0.2s ease;
+}
+
+.contact-box:hover {
+    transform: scale(0.98);
+}
+
+.contact-box h3 {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: 1.8rem;
+}
+
+.arrow-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.2rem;
+}
+
+/* RIGHT COLUMN (PROJECTS) STYLES */
+.projects-box {
+    grid-column: 3; /* Place in the third column */
+    overflow-y: auto; /* Allows scrolling if list is long */
+}
+
+.projects-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.projects-header h3 {
+    font-size: 1.2rem;
+}
+
+.all-projects-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.2s ease;
+}
+
+.all-projects-link:hover {
+    color: var(--accent-color);
+}
+
+.project-list {
+    list-style: none;
+}
+
+.project-item {
+    margin-bottom: 10px;
+}
+
+.project-item a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+}
+
+.project-item a:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    transform: translateX(5px);
+}
+
+.project-info h4 {
+    font-size: 1rem;
+    margin-bottom: 4px;
+}
+
+.project-info p {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+/* FOOTER BOX */
+.footer-box {
+    padding: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.social-links {
+    display: flex;
+    gap: 20px;
+}
+
+.social-links a {
+    color: var(--text-secondary);
+    font-size: 1.3rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.social-links a:hover {
+    color: var(--accent-color);
+}
+
+/* MEDIA QUERY FOR SMALLER SCREENS */
+@media (max-width: 900px) {
+    body {
+        height: auto;
+        overflow: auto;
+    }
+    .main-container {
+        grid-template-rows: auto;
+        gap: 15px;
+    }
+    .grid-content {
+        grid-template-columns: 1fr; /* Stack columns vertically */
+        gap: 15px;
+    }
+    .column {
+        gap: 15px;
+    }
+    .academic-box, .toolbox-box, .image-placeholder, .contact-box {
+        flex: auto; /* Let them size naturally */
+        min-height: 150px;
+    }
+    .projects-box {
+        grid-column: auto;
+        min-height: 300px;
+    }
+}
